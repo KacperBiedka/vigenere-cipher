@@ -1,9 +1,17 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 using namespace std;
 
 extern string lowercaseAp;
 extern string uppercaseAp;
+
+void showMenu () {
+    cout << "Wybierz operacje:" << endl;
+    cout << "1. Enkryptowanie" << endl;
+    cout << "2. Dekryptowanie" << endl;
+    cout << "Wybieram: ";
+}
 
 int getPos (char sign) {
     for (int i = 0; i < lowercaseAp.size(); i++) {
@@ -13,40 +21,70 @@ int getPos (char sign) {
     }
 }
 
-void encrypt (string text, string keyword) {
-    string encryptedValue;
+string transformLine (int operation, string text, string keyword) {
+    string transformedValue;
     for (int i = 0; i < text.size(); i++) {
         int repeatBlock = i % keyword.size();
         int xOffset = getPos(text[i]);
         int yOffset = getPos(keyword[repeatBlock]);
-        encryptedValue += lowercaseAp[(xOffset + yOffset) % lowercaseAp.size()];
+        if (text[i] == ' ') {
+            transformedValue += ' ';
+        } else {
+            // Using a switch operator leaves more room to add additional commands
+            switch(operation) {
+                case 1:
+                    transformedValue += lowercaseAp[(xOffset + yOffset) % lowercaseAp.size()];
+                    break;
+                case 2:
+                    int index = xOffset >= yOffset ? xOffset - yOffset : lowercaseAp.size() - (yOffset - xOffset);
+                    transformedValue += lowercaseAp[index];
+                    break;
+            }
+        }
     }
-    cout << "Zaszyfrowany wynik - " << encryptedValue << endl;
+    cout << transformedValue << endl;
+    return transformedValue;
 }
 
-void decrypt (string text, string keyword) {
-    string decryptedValue;
-    for (int i = 0; i < text.size(); i++) {
-        int repeatBlock = i % keyword.size();
-        int xOffset = getPos(text[i]);
-        int yOffset = getPos(keyword[repeatBlock]);
-        int index = xOffset > yOffset ? xOffset - yOffset : lowercaseAp.size() - (yOffset - xOffset);
-        decryptedValue += lowercaseAp[index];
+void transformFile (int operation, string keyword, string inputPath, string outputPath) {
+    fstream inputHook(inputPath, ios::in | ios::out);
+    fstream outputHook(outputPath, ios::in | ios::out);
+    cout << "transforming" << endl;
+    if (inputHook.good()) {
+        cout << "good" << endl;
+        string inputLine;
+        string outputLine;
+        while(!inputHook.eof()) {
+            getline(inputHook, inputLine);
+            string convertedLine = transformLine(operation, inputLine, keyword);
+            convertedLine += '\n';
+            outputHook.write(convertedLine.c_str(), sizeof(char)*convertedLine.size());
+        }
+    } else {
+        cout << "Error :(" << endl;
     }
-    cout << "Odszyfrowany wynik - " << decryptedValue << endl;
 }
 
 void program () {
     string keyword;
     string inputPath;
-    cout << "Podaj slowo do enkryptowania: " << endl;
-    cin >> inputPath;
-    cout << "Podaj slowo kluczowe: " << endl;
+    string outputPath;
+    string operation;
+    int answer;
+    while (answer > 2 || answer < 1) {
+        showMenu();
+        cin >> answer;
+    }
+    cout << "Podaj sciezke pliku wejscia: ";
+    if (!(cin >> inputPath))
+        cout << "Error :(";
+    cout << "Podaj sciezke pliku wyjscia: ";
+    if (!(cin >> outputPath))
+        cout << "Error :(";
+    cout << "Podaj slowo kluczowe: ";
     if (!(cin >> keyword))
         cout << "Error :(";
-    encrypt(inputPath, keyword);
-    decrypt("mikm", "test");
-
+    transformFile(answer, keyword, inputPath, outputPath);
 }
 
 void rerun (void method()) {
