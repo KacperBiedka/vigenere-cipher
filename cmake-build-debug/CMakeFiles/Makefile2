@@ -93,12 +93,12 @@ clean: CMakeFiles/vignere_cipher.dir/clean
 CMakeFiles/vignere_cipher.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\vignere_cipher.dir\build.make CMakeFiles/vignere_cipher.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\vignere_cipher.dir\build.make CMakeFiles/vignere_cipher.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Kacper\Desktop\dev\studia\vignere-cipher\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target vignere_cipher"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Kacper\Desktop\dev\studia\vignere-cipher\cmake-build-debug\CMakeFiles --progress-num=1,2,3 "Built target vignere_cipher"
 .PHONY : CMakeFiles/vignere_cipher.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/vignere_cipher.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Kacper\Desktop\dev\studia\vignere-cipher\cmake-build-debug\CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Kacper\Desktop\dev\studia\vignere-cipher\cmake-build-debug\CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/vignere_cipher.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Kacper\Desktop\dev\studia\vignere-cipher\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/vignere_cipher.dir/rule

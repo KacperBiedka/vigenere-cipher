@@ -142,6 +142,33 @@ vignere_cipher/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\vignere_cipher.dir\build.make CMakeFiles/vignere_cipher.dir/build
 .PHONY : vignere_cipher/fast
 
+constants.obj: constants.cpp.obj
+
+.PHONY : constants.obj
+
+# target to build an object file
+constants.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\vignere_cipher.dir\build.make CMakeFiles/vignere_cipher.dir/constants.cpp.obj
+.PHONY : constants.cpp.obj
+
+constants.i: constants.cpp.i
+
+.PHONY : constants.i
+
+# target to preprocess a source file
+constants.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\vignere_cipher.dir\build.make CMakeFiles/vignere_cipher.dir/constants.cpp.i
+.PHONY : constants.cpp.i
+
+constants.s: constants.cpp.s
+
+.PHONY : constants.s
+
+# target to generate assembly for a file
+constants.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\vignere_cipher.dir\build.make CMakeFiles/vignere_cipher.dir/constants.cpp.s
+.PHONY : constants.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -178,6 +205,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... vignere_cipher
+	@echo ... constants.obj
+	@echo ... constants.i
+	@echo ... constants.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

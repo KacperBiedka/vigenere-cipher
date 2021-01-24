@@ -3,4 +3,4 @@ project(vignere_cipher)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(vignere_cipher main.cpp)
+add_executable(vignere_cipher main.cpp constants.cpp)

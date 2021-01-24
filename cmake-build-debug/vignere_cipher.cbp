@@ -80,6 +80,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/Kacper/Desktop/dev/studia/vignere-cipher/constants.cpp">
+			<Option target="vignere_cipher"/>
+		</Unit>
 		<Unit filename="C:/Users/Kacper/Desktop/dev/studia/vignere-cipher/main.cpp">
 			<Option target="vignere_cipher"/>
 		</Unit>

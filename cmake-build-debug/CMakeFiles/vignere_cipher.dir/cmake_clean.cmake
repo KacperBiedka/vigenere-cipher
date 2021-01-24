@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/vignere_cipher.dir/constants.cpp.obj"
   "CMakeFiles/vignere_cipher.dir/main.cpp.obj"
   "libvignere_cipher.dll.a"
   "vignere_cipher.exe"
