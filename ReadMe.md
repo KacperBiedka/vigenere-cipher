@@ -1,4 +1,4 @@
-# Vigenere cipher c++ implementation
+# [Vigenere Cipher C++ implementation](https://github.com/KacperBiedka/vigenere-cipher)
 ## Simple implementation of basic file encryption and decryption using the Vigenere algorithm.
 ### After running the build and choosing the operation you will be required to pass 3 values: 
 - #### `inputPath` - an absolute path to a file containing values for transform - eg. `C:\\Users\\Kacper\\Desktop\\dev\\studia\\vignere-cipher\\decrypted.txt` 
