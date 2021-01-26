@@ -23,6 +23,7 @@ int getPos (char sign) {
 
 string transformLine (int operation, string text, string keyword) {
     string transformedValue;
+    cout << "Input line - " << text << endl;
     for (int i = 0; i < text.size(); i++) {
         int repeatBlock = i % keyword.size();
         int xOffset = getPos(text[i]);
@@ -30,28 +31,33 @@ string transformLine (int operation, string text, string keyword) {
         if (text[i] == ' ') {
             transformedValue += ' ';
         } else {
-            // Using a switch operator leaves more room to add additional commands
+            string alphabet;
+            // determine if current sign is uppercase or lowercase
+            if (text[i] >= 'A' && text[i] <= 'Z') {
+                alphabet = uppercaseAp;
+            } else {
+                alphabet = lowercaseAp;
+            }
+            // Using a switch operator leaves more room for add additional commands
             switch(operation) {
                 case 1:
-                    transformedValue += lowercaseAp[(xOffset + yOffset) % lowercaseAp.size()];
+                    transformedValue += alphabet[(xOffset + yOffset) % alphabet.size()];
                     break;
                 case 2:
-                    int index = xOffset >= yOffset ? xOffset - yOffset : lowercaseAp.size() - (yOffset - xOffset);
-                    transformedValue += lowercaseAp[index];
+                    int index = xOffset >= yOffset ? xOffset - yOffset : alphabet.size() - (yOffset - xOffset);
+                    transformedValue += alphabet[index];
                     break;
             }
         }
     }
-    cout << transformedValue << endl;
+    cout << "Converted line - " << transformedValue << endl;
     return transformedValue;
 }
 
 void transformFile (int operation, string keyword, string inputPath, string outputPath) {
     fstream inputHook(inputPath, ios::in | ios::out);
     fstream outputHook(outputPath, ios::in | ios::out);
-    cout << "transforming" << endl;
     if (inputHook.good()) {
-        cout << "good" << endl;
         string inputLine;
         string outputLine;
         while(!inputHook.eof()) {
