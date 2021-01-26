@@ -2,7 +2,7 @@
 ## Simple implementation of basic file encryption and decryption using the Vigenere algorithm.
 ### After running the build and choosing the operation you will be required to pass 3 values: 
 - #### `inputPath` - an absolute path to a file containing values for transform - eg. `C:\\Users\\Kacper\\Desktop\\dev\\studia\\vignere-cipher\\decrypted.txt` 
-- #### `outputPath` - an absolute path to a file where your result will be stored - eg. `C:\\Users\\Kacper\\Desktop\\dev\\studia\\vignere-cipher\\decrypted.txt` 
+- #### `outputPath` - an absolute path to a file where your result will be stored - eg. `C:\\Users\\Kacper\\Desktop\\dev\\studia\\vignere-cipher\\output.txt` 
 - #### `keyword` - mandatory string used for calculating the char position in the alphabet, this value is needed to perform both the encryption and decryption - eg. `test`
 
 ---

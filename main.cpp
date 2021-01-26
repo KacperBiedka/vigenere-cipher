@@ -23,7 +23,7 @@ int getPos (char sign) {
 
 string transformLine (int operation, string text, string keyword) {
     string transformedValue;
-    cout << "Input line - " << text << endl;
+    cout << "Input line: " << text << endl;
     for (int i = 0; i < text.size(); i++) {
         int repeatBlock = i % keyword.size();
         int xOffset = getPos(text[i]);
@@ -50,7 +50,7 @@ string transformLine (int operation, string text, string keyword) {
             }
         }
     }
-    cout << "Converted line - " << transformedValue << endl;
+    cout << "Converted line: " << transformedValue << endl;
     return transformedValue;
 }
 
