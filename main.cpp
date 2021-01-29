@@ -68,6 +68,7 @@ void transformFile (int operation, string keyword, string inputPath, string outp
         }
     } else {
         cout << "Error :(" << endl;
+        return;
     }
 }
 
@@ -79,17 +80,26 @@ void program () {
     int answer;
     while (answer > 2 || answer < 1) {
         showMenu();
-        cin >> answer;
+        if (!(cin >> answer)) {
+            cout << "Error :(";
+            return;
+        }
     }
     cout << "Podaj sciezke pliku wejscia: ";
-    if (!(cin >> inputPath))
+    if (!(cin >> inputPath)) {
         cout << "Error :(";
+        return;
+    }
     cout << "Podaj sciezke pliku wyjscia: ";
-    if (!(cin >> outputPath))
+    if (!(cin >> outputPath)) {
         cout << "Error :(";
+        return;
+    }
     cout << "Podaj slowo kluczowe: ";
-    if (!(cin >> keyword))
+    if (!(cin >> keyword)) {
         cout << "Error :(";
+        return;
+    }
     transformFile(answer, keyword, inputPath, outputPath);
 }
 
